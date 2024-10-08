@@ -2,7 +2,7 @@
     <form wire:submit.prevent="save" class="bg-white p-8 rounded-lg shadow-md w-full max-w-lg">
         <div class="mb-4">
             <label for="name" class="block text-gray-700 font-bold mb-2">Nombre del Rol</label>
-            <input wire:model="name" type="text" name="name"
+            <input wire:model="name" type="text" name="name "
                    class="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                    placeholder="Ingresa el nombre del rol">
         </div>
