@@ -27,8 +27,8 @@ Route::get('users/user', [UserController::class,'users_index'])->name('users-use
 Route::get('users/role/create', [UserController::class,'roles_create'])->name('users-roles-create');
 Route::get('users/role/editar/{id}', [UserController::class, 'roles_edit'])->name('users-roles-edit');
 Route::get('users/solicitud/create', [UserController::class, 'solicitudes_create'])->name('users-solicitud-create');
-Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
-Route::post('/users', [UserController::class, 'store'])->name('users.store');
+Route::get('/users/create', [UserController::class, 'users_create'])->name('users-users-create');
+Route::get('/users/user/editar/{id}', [UserController::class, 'users_edit'])->name('users-users-edit');
 
 
 

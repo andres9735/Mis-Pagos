@@ -33,35 +33,15 @@ class UserController extends Controller
         return view('users.solicitudes-create');
     }
 
-    public function create()
+    public function users_create()
     {   
         // Retorna la vista para crear un nuevo usuario
-        return view('livewire.users.create'); 
+        return view('users.users-create');
     }
 
-    /*
-    public function store(Request $request)
+    public function users_edit($id)
     {
-        // Depurar los datos que llegan del formulario
-        dd($request->all());
-
-        // Validar los datos
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|string|min:8',
-        ]);
-
-        // Crear el nuevo usuario
-        \App\Models\User::create([
-            'name' => $validated['name'],
-            'email' => $validated['email'],
-            'password' => bcrypt($validated['password']), 
-        ]);
-
-        // Redirigir con un mensaje de éxito
-        return redirect()->route('users-users.index')->with('message', 'Usuario creado exitosamente.');
+        return view('users.users-edit', ['id'=>$id]);
     }
-    */
 
 }
