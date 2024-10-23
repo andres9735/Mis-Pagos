@@ -31,6 +31,19 @@
             @enderror
         </div>
 
+        <div class="mb-4">
+          <label for="password" class="block text-gray-700">Contraseña:</label>
+          <select wire:model="user_role" name="user_role" id="user_role">
+            <option value="" selected>Selecione un rol</option>
+            @foreach($roles as $role)
+            <option value="{{$role}}" >{{$role}}</option>
+            @endforeach
+          </select>
+          @error('user_role')
+            <span class="text-red-400">{{ $message }}</span>  
+          @enderror
+      </div>
+
         <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
             Guardar
         </button>
