@@ -18,6 +18,12 @@
                     <x-nav-link href="{{ route('users-users-index') }}" :active="request()->routeIs('users-*')">
                         Usuarios
                     </x-nav-link>
+                    <x-nav-link href="{{ route('solicitudes-solicitud-create') }}" :active="request()->routeIs('solicitudes-*')">
+                        Solicitudes
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('planes-planes-list') }}" :active="request()->routeIs('planes-*')">
+                        Planes
+                    </x-nav-link>
                 </div>
             </div>
 

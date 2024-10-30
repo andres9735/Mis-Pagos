@@ -13,6 +13,7 @@ class ContribuyenteSeeder extends Seeder
      */
     public function run(): void
     {
+        /*
         Contribuyente::create([
             'nombre' => 'Juan Perez',
             'dni' => '26456098',
@@ -28,5 +29,9 @@ class ContribuyenteSeeder extends Seeder
             'telefono' => '3758-012376',
             'direccion' => 'Salta, 1225',
         ]);
+
+        */
+
+        
     }
 }

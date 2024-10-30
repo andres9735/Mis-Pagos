@@ -63,6 +63,7 @@
                 <td class="py-3 px-6 text-left">{{ $request->cuotas }}</td>
                 <td class="py-3 px-6 text-left">{{ $request->fecha_inicio }}</td>
                 <td class="py-3 px-6 text-center">
+                    <a href="{{ route('planes-planes-create', $request->id) }}" wire:navigate class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition">crear plan de pago</a>
                     <button wire:click="edit({{ $request->id }})" class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition">Editar</button>
                     <button wire:click="delete({{ $request->id }})" class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition">Eliminar</button>
                 </td>

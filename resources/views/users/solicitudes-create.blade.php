@@ -1,8 +1,8 @@
 @extends('dashboard')
-@section('titulo_vista', 'modulo usuarios')
+@section('titulo_vista', 'modulo de solicitudes')
 
 @section('menu_vista')
-    @include('users.main-nav')
+    @include('solicitudes.main-nav')
 @endsection
 
 @section('contenido_vista')

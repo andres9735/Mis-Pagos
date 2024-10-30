@@ -55,13 +55,12 @@ class CreateSolicitudPlanDePago extends Component
                 'contribuyente_id' => 'required|integer',
                 'nombre_plan' => 'required|string',
                 'cantidad' => 'required|numeric',
-                'cuotas' => 'required|integer',
+                'cuotas' => 'required|integer|min:1|max:10', // Rango de 1 a 10
                 'fecha_inicio' => 'required|date',
             ]);
 
             // Verificar si es una edición o una creación
             if ($this->solicitud_plan_de_pago_id) {
-                // Actualizar el registro existente
                 $solicitudPlanDePago = SolicitudPlanDePago::find($this->solicitud_plan_de_pago_id);
                 $solicitudPlanDePago->update([
                     'contribuyente_id' => $this->contribuyente_id,
@@ -72,7 +71,6 @@ class CreateSolicitudPlanDePago extends Component
                 ]);
                 session()->flash('message', 'Solicitud de plan de pago actualizada correctamente.');
             } else {
-                // Crear un nuevo registro
                 SolicitudPlanDePago::create([
                     'contribuyente_id' => $this->contribuyente_id,
                     'nombre_plan' => $this->nombre_plan,
@@ -82,10 +80,11 @@ class CreateSolicitudPlanDePago extends Component
                 ]);
                 session()->flash('message', 'Solicitud de plan de pago creada correctamente.');
             }
-    
+
             $this->closeModal();
             $this->resetInputFields();
         }
+
     
         public function edit($id)
         {
