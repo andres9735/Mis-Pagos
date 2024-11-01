@@ -24,6 +24,9 @@
                     <x-nav-link href="{{ route('planes-planes-list') }}" :active="request()->routeIs('planes-*')">
                         Planes
                     </x-nav-link>
+                    <x-nav-link href="{{ route('auditorias-auditoria-list') }}" :active="request()->routeIs('auditorias-*')">
+                        Auditorias
+                    </x-nav-link>
                 </div>
             </div>
 

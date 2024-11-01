@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auditoria\AuditoriaController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\Planes\PlanDePagoController;
 use Illuminate\Support\Facades\Route;
@@ -42,6 +43,11 @@ Route::get('planes/planes', [PlanDePagoController::class, 'plan_list'])->name('p
 Route::get('planes/planes/create/{solicitudId}', [PlanDePagoController::class, 'plan_create'])->name('planes-planes-create');
 
 /* Route::get('planes/store', [PlanDePagoController::class, 'store'])->name('planes-plan-store'); */
+
+// Ruta para la vista de auditoría
+Route::get('audits/audit', [AuditoriaController::class, 'auditoria_index'])->name('auditorias-auditoria-list');
+Route::get('auditorias/{id}', [AuditoriaController::class, 'detalle'])->name('auditorias.detalle');
+
 
 // Ruta de prueba
 Route::get('/test-relationship', [TestController::class, 'testRelationship']);

@@ -24,7 +24,8 @@ class User extends Authenticatable implements Auditable
     use HasRoles;
     use \OwenIt\Auditing\Auditable;
 
-    
+    protected $auditExclude = ['password'];
+
     /**
      * The attributes that are mass assignable.
      *
