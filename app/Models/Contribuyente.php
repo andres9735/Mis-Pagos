@@ -31,4 +31,9 @@ class Contribuyente extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function deudas()
+    {
+        return $this->hasMany(Deuda::class);
+    }
 }
