@@ -15,7 +15,8 @@ class SolicitudPlanDePago extends Model
 
     protected $fillable = [
         'contribuyente_id',
-        'nombre_plan',
+        'tipo_plan',
+        'nombre_contribuyente',
         'cantidad', 
         'cuotas', 
         'fecha_inicio'

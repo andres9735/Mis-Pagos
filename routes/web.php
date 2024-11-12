@@ -9,6 +9,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\User\UserController;
 use App\Livewire\GenerarPlanDePago;
 use App\Livewire\SolicitudPlanDePagoComponente;
+use App\Livewire\Users\CreateSolicitudPlanDePago;
 use App\Models\PlanDePago;
 use App\Models\User;
 
