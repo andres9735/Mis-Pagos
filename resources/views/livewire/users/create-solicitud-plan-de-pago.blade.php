@@ -1,8 +1,10 @@
 <div class="p-6 bg-gray-100 min-h-screen">
     <!-- Mostrar mensajes de éxito o error -->
+    
     @if(session()->has('message'))
-        <div class="bg-green-500 text-white p-2 rounded mb-4">
+        <div x-data="{ open: true }" x-show="open" @click.outside="open=false" class="bg-green-500 text-white p-2 rounded mb-4">
             {{ session('message') }}
+            <button @click="open = ! open" >Cerrar</button>
         </div>
     @elseif(session()->has('mensaje'))
         <div class="bg-red-500 text-white p-2 rounded mb-4">
@@ -111,10 +113,12 @@
                 <td class="py-3 px-6 text-left">{{ $request->cuotas }}</td>
                 <td class="py-3 px-6 text-left">{{ \Carbon\Carbon::parse($request->fecha_inicio)->format('d/m/Y') }}</td>
                 <td class="py-3 px-6 text-center">
-                    <a href="{{ route('planes-planes-create', $request->id) }}" wire:navigate class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition">crear plan de pago</a>
-                    <button wire:click="edit({{ $request->id }})" class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition">Editar</button>
-                    <button wire:click="delete({{ $request->id }})" class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition">Eliminar</button>
-                </td>
+                    <div class="flex justify-center space-x-2">
+                        <a href="{{ route('planes-planes-create', $request->id) }}" wire:navigate class="px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600 transition">crear plan de pago</a>
+                        <button wire:click="edit({{ $request->id }})" class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition">Editar</button>
+                        <button wire:click="delete({{ $request->id }})" class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition">Eliminar</button>
+                    </div>
+                </td>                               
             </tr>
             @endforeach
         </tbody>

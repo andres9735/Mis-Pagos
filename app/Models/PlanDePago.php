@@ -16,7 +16,11 @@ class PlanDePago extends Model implements Auditable
     protected $table = 'planes_de_pago';
 
     protected $fillable = [
-        'solicitud_id', 'contribuyente_id', 'nombre_plan', 'cantidad_cuotas', 'fecha_inicio'
+        'solicitud_id',
+        'contribuyente_id', 
+        'nombre_plan', 
+        'cantidad_cuotas', 
+        'fecha_inicio'
     ];
 
     public function solicitud()

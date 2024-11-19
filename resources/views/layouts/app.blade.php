@@ -14,6 +14,9 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+        <!-- Alpine.js -->
+        <script src="//unpkg.com/alpinejs" defer></script>
+
         <!-- Styles -->
         @livewireStyles
     </head>

@@ -27,6 +27,9 @@
                     <x-nav-link href="{{ route('auditorias-auditoria-list') }}" :active="request()->routeIs('auditorias-*')">
                         Auditorias
                     </x-nav-link>
+                    <x-nav-link href="{{ route('tasas-tasa-list') }}" :active="request()->routeIs('tasas-*')">
+                        Tasas
+                    </x-nav-link>
                 </div>
             </div>
 

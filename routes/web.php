@@ -5,6 +5,7 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\Planes\PlanDePagoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Seguridad;
+use App\Http\Controllers\Tasas\TasaDePlanController;
 use Inertia\Inertia;
 use App\Http\Controllers\User\UserController;
 use App\Livewire\GenerarPlanDePago;
@@ -49,9 +50,14 @@ Route::get('planes/planes/create/{solicitudId}', [PlanDePagoController::class, '
 Route::get('audits/audit', [AuditoriaController::class, 'auditoria_index'])->name('auditorias-auditoria-list');
 Route::get('auditorias/{id}', [AuditoriaController::class, 'detalle'])->name('auditorias.detalle');
 
+// Ruta para la vista de tasas
+Route::get('tasas/tasas', [TasaDePlanController::class, 'tasas_index'])->name('tasas-tasa-list');
+
 
 // Ruta de prueba
 Route::get('/test-relationship', [TestController::class, 'testRelationship']);
+
+
 
 
 
