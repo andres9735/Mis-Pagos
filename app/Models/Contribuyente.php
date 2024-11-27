@@ -34,6 +34,19 @@ class Contribuyente extends Model
 
     public function deudas()
     {
+        return $this->hasMany(Deuda::class, 'contribuyente_id');
+    }
+
+
+
+    /*
+
+
+    public function deudas()
+    {
         return $this->hasMany(Deuda::class);
     }
+
+
+    */
 }

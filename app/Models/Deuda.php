@@ -9,11 +9,36 @@ class Deuda extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['contribuyente_id', 'monto', 'descripcion', 'fecha_vencimiento'];
+    protected $fillable = [
+        'contribuyente_id',
+        'tipo_deuda_id',
+        'monto',
+        'descripcion',
+        'fecha_creacion',
+        'fecha_vencimiento',
+    ];
 
-    public function contribuyente()
+    // Relación con TipoDeuda
+    public function tipoDeuda()
     {
-        return $this->belongsTo(Contribuyente::class);
+        return $this->belongsTo(TipoDeuda::class, 'tipo_deuda_id');
     }
+
+     // Relación con Contribuyente
+     public function contribuyente()
+     {
+        return $this->belongsTo(Contribuyente::class, 'contribuyente_id', 'id');
+     }
+
+     /*
+
+
+     public function contribuyente()
+     {
+         return $this->belongsTo(Contribuyente::class);
+     }
+
+
+     */
 }
 

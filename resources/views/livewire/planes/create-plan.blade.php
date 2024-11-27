@@ -65,7 +65,7 @@
 
         <div class="form-group mb-3">
             <label for="cantidad_cuotas" class="font-bold">Cantidad de Cuotas</label>
-            <input type="number" id="cantidad_cuotas" wire:model="cantidad_cuotas" min="1" max="10" class="w-full border rounded p-2" required>
+            <input type="number" id="cantidad_cuotas" wire:model="cantidad_cuotas" wire:change="calculateMontoPorCuota" min="1" max="10" class="w-full border rounded p-2" required>
             @error('cantidad_cuotas') 
                 <span class="text-red-500 text-sm">{{ $message }}</span> 
             @enderror

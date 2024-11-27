@@ -1,6 +1,5 @@
 <div class="p-6 bg-gray-100 min-h-screen">
     <!-- Mostrar mensajes de éxito o error -->
-    
     @if(session()->has('message'))
         <div x-data="{ open: true }" x-show="open" @click.outside="open=false" class="bg-green-500 text-white p-2 rounded mb-4">
             {{ session('message') }}
@@ -26,7 +25,7 @@
                     <!-- Campo para ID Contribuyente -->
                     <div class="form-group">
                         <label for="contribuyente_id" class="block text-sm font-medium text-gray-700">Contribuyente</label>
-                        <select wire:model="contribuyente_id" wire:change="obtenerMontoDeuda" class="mt-1 block w-full border border-gray-300 rounded p-2 text-sm focus:outline-none focus:ring focus:border-blue-300">
+                        <select wire:model="contribuyente_id" class="mt-1 block w-full border border-gray-300 rounded p-2 text-sm focus:outline-none focus:ring focus:border-blue-300">
                             <option value="">Seleccione un contribuyente</option>
                             @foreach($contribuyentes as $contribuyente)
                                 <option value="{{ $contribuyente->id }}">{{ $contribuyente->nombre }}</option>
@@ -40,6 +39,20 @@
                         <input type="text" wire:model="nombre_contribuyente" readonly class="mt-1 block w-full border border-gray-300 rounded p-2 text-sm focus:outline-none focus:ring focus:border-blue-300">
                     </div>
 
+                    <!-- Campo para Tasa -->
+                    <div class="form-group">
+                        <label for="tasa_id" class="block text-sm font-medium text-gray-700">Tasa</label>
+                        <select wire:model="tasa_id" class="mt-1 block w-full border border-gray-300 rounded p-2 text-sm focus:outline-none focus:ring focus:border-blue-300">
+                            <option value="">Seleccione una tasa</option>
+                            @foreach($tasas as $tasa)
+                                <option value="{{ $tasa->id }}">{{ $tasa->nombre }} ({{ $tasa->porcentaje }}%)</option>
+                            @endforeach
+                        </select>
+                        @error('tasa_id') 
+                            <span class="text-red-500 text-sm">{{ $message }}</span> 
+                        @enderror
+                    </div>
+
                     <!-- Campo para Tipo de Plan -->
                     <div class="form-group">
                         <label for="tipo_plan" class="block text-sm font-medium text-gray-700">Tipo de Plan</label>
@@ -49,12 +62,13 @@
                             <option value="comercio">Plan de Pago Comercio</option>
                         </select>
                     </div>
+                    
 
                     <!-- Monto total de deuda -->
                     <div class="form-group">
                         <label for="deuda_total" class="block text-sm font-medium text-gray-700">Monto total de deuda:</label>
                         <span class="block mt-1 text-gray-900">{{ number_format($montoTotalDeuda, 2) }}</span>
-                    </div>
+                    </div>                    
 
                     <!-- Monto a incluir en el plan de pago -->
                     <div class="form-group">

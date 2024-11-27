@@ -15,11 +15,4 @@
             </div>
         </div>
     </div>
-
-    <!-- Incluye los estilos y scripts de Livewire -->
-    @livewireStyles
-    <script src="//unpkg.com/alpinejs" defer></script> 
-    @livewireScripts
 </x-app-layout>
-
-
